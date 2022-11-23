@@ -28,8 +28,8 @@ class AlphaBot(object):
         self.stop()
 
     def left(self):
-        self.PWMA.ChangeDutyCycle(self.PA)
-        self.PWMB.ChangeDutyCycle(self.PB)
+        self.PWMA.ChangeDutyCycle(self.PA - 20)
+        self.PWMB.ChangeDutyCycle(self.PB - 20)
         GPIO.output(self.IN1, GPIO.HIGH)
         GPIO.output(self.IN2, GPIO.LOW)
         GPIO.output(self.IN3, GPIO.HIGH)
@@ -44,8 +44,8 @@ class AlphaBot(object):
         GPIO.output(self.IN4, GPIO.LOW)
 
     def right(self):
-        self.PWMA.ChangeDutyCycle(self.PA)
-        self.PWMB.ChangeDutyCycle(self.PB)
+        self.PWMA.ChangeDutyCycle(self.PA - 20)
+        self.PWMB.ChangeDutyCycle(self.PB - 20)
         GPIO.output(self.IN1, GPIO.LOW)
         GPIO.output(self.IN2, GPIO.HIGH)
         GPIO.output(self.IN3, GPIO.LOW)
@@ -53,7 +53,7 @@ class AlphaBot(object):
 
     def forward(self, speed=30):
         self.PWMA.ChangeDutyCycle(speed)
-        self.PWMB.ChangeDutyCycle(speed + 8)
+        self.PWMB.ChangeDutyCycle(speed + 4)
         GPIO.output(self.IN1, GPIO.LOW)
         GPIO.output(self.IN2, GPIO.HIGH)
         GPIO.output(self.IN3, GPIO.HIGH)
@@ -61,7 +61,7 @@ class AlphaBot(object):
 
     def backward(self, speed=30):
         self.PWMA.ChangeDutyCycle(speed)
-        self.PWMB.ChangeDutyCycle(speed + 8)
+        self.PWMB.ChangeDutyCycle(speed)
         GPIO.output(self.IN1, GPIO.HIGH)
         GPIO.output(self.IN2, GPIO.LOW)
         GPIO.output(self.IN3, GPIO.LOW)
